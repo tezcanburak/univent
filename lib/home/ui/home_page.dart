@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
                         style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 4),
-                      Text('Hoş geldin, Burak', style: const TextStyle(color: Colors.white70, fontSize: 14)),
+                      Text('Hoş geldin, Burak TEZCAN', style: const TextStyle(color: Colors.white70, fontSize: 14)),
                     ],
                   ),
                 ),
