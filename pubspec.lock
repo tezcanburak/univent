@@ -107,6 +107,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_toggle_tab:
+    dependency: "direct main"
+    description:
+      name: flutter_toggle_tab
+      sha256: b07e49d8e9dfcf253e5c5ee5fea601b47bcf6cfa0c42aaa7a60f94b7e8806dce
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.5.1"
   flutter_web_plugins:
     dependency: transitive
     description: flutter

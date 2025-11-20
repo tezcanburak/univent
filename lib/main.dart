@@ -27,9 +27,10 @@ class Univent extends StatelessWidget {
           backgroundColor: ColorConstants.red,
           contentTextStyle: const TextStyle(color: Colors.white),
         ),
+
         textTheme: GoogleFonts.mulishTextTheme().apply(bodyColor: Colors.black),
         scaffoldBackgroundColor: ColorConstants.white,
-        appBarTheme: AppBarTheme(color: Colors.transparent, systemOverlayStyle: SystemUi.lightStyle()),
+        appBarTheme: AppBarTheme(backgroundColor: Colors.transparent, systemOverlayStyle: SystemUi.lightStyle()),
       ),
       themeMode: ThemeMode.system,
       routerConfig: AppRouter.router,
