@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:univent/constants/color.dart';
+import 'package:univent/router/app_router.dart';
 import 'package:univent/style/common_decorations.dart';
 
 class ClubDashboardForm extends StatelessWidget {
@@ -112,13 +114,13 @@ class ClubDashboardForm extends StatelessWidget {
             SizedBox(height: 30),
 
             // Buttons
-            _RedButton(label: 'Club Page Management'),
+            _RedButton(label: 'Club Page Management', onTap: () => context.push(AppRouter.clubManagement)),
             SizedBox(height: 16),
-            _RedButton(label: 'Event Creation'),
+            _RedButton(label: 'Event Creation', onTap: () => context.push(AppRouter.eventManagement)),
             SizedBox(height: 16),
-            _RedButton(label: 'Event Management'),
+            _RedButton(label: 'Event Management', onTap: () => context.push(AppRouter.eventManagement)),
             SizedBox(height: 16),
-            _RedButton(label: 'Data & Insights'),
+            _RedButton(label: 'Data & Insights', onTap: () => context.push(AppRouter.dataInsight)),
           ],
         ),
       ),
@@ -168,19 +170,23 @@ class _ValueBox extends StatelessWidget {
 
 class _RedButton extends StatelessWidget {
   final String label;
+  final VoidCallback onTap;
 
-  const _RedButton({required this.label});
+  const _RedButton({required this.label, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 16),
-      decoration: BoxDecoration(color: ColorConstants.red, borderRadius: BorderRadius.circular(10)),
-      child: Center(
-        child: Text(
-          label,
-          style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(vertical: 16),
+        decoration: BoxDecoration(color: ColorConstants.red, borderRadius: BorderRadius.circular(10)),
+        child: Center(
+          child: Text(
+            label,
+            style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+          ),
         ),
       ),
     );

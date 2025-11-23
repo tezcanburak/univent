@@ -21,7 +21,7 @@ class AppRouter {
 
 
   static final GoRouter router = GoRouter(
-    initialLocation: clubManagement,
+    initialLocation: clubDashboard,
     routes: [
       GoRoute(path: home, name: 'home', builder: (context, state) => const HomePage()),
       GoRoute(path: clubLogin, name: 'clubLogin', builder: (context, state) => const ClubLoginPage()),
