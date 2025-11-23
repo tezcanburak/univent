@@ -153,7 +153,10 @@ class StudentLoginForm extends StatelessWidget {
               onPressed: () {
                 // TODO: navigate to club login
               },
-              style: ElevatedButton.styleFrom(backgroundColor: ColorConstants.black, shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(10))),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: ColorConstants.black,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(10)),
+              ),
               child: const Text(
                 'CLUB LOGIN',
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),

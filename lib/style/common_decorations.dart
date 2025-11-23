@@ -23,4 +23,12 @@ class CommonDecorations {
   static Decoration lightGreyBackgroundDecoration() {
     return BoxDecoration(borderRadius: const BorderRadius.all(Radius.circular(10)), color: ColorConstants.lightGrey.withValues(alpha: 0.8));
   }
+
+  static Decoration border10White() {
+    return BoxDecoration(
+      borderRadius: const BorderRadius.all(Radius.circular(10)),
+      color: ColorConstants.white,
+      boxShadow: [BoxShadow(color: ColorConstants.black.withValues(alpha: 0.25), offset: Offset(0, 2), blurRadius: 4)],
+    );
+  }
 }
