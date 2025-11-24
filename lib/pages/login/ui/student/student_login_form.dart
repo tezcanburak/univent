@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:univent/constants/color.dart';
+import 'package:univent/router/app_router.dart';
 import 'package:univent/style/common_decorations.dart';
 
 class StudentLoginForm extends StatelessWidget {
@@ -85,9 +87,7 @@ class StudentLoginForm extends StatelessWidget {
           SizedBox(
             height: 64,
             child: ElevatedButton(
-              onPressed: () {
-                // TODO: login
-              },
+              onPressed: () => context.go(AppRouter.home),
               style: ElevatedButton.styleFrom(
                 backgroundColor: ColorConstants.red,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(10)),
@@ -150,9 +150,7 @@ class StudentLoginForm extends StatelessWidget {
           SizedBox(
             height: 64,
             child: ElevatedButton(
-              onPressed: () {
-                // TODO: navigate to club login
-              },
+              onPressed: () => context.push(AppRouter.clubLogin),
               style: ElevatedButton.styleFrom(
                 backgroundColor: ColorConstants.black,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(10)),

@@ -14,18 +14,35 @@ class HomePage extends StatelessWidget {
     return SafeArea(
       top: false,
       bottom: true,
-      child: Scaffold(
-        extendBody: true,
-        extendBodyBehindAppBar: false,
-        appBar: AppBar(
-          /// This color for Drawer's Hamburger Icon!!!
-          iconTheme: IconThemeData(color: Colors.white),
-          centerTitle: true,
-          title: SvgPicture.asset('assets/svg/univent.svg'),
-          flexibleSpace: Container(decoration: CommonDecorations.appBarGreyDecoration()),
+      child: PopScope(
+        canPop: false,
+        child: Scaffold(
+          extendBody: true,
+          extendBodyBehindAppBar: false,
+          appBar: AppBar(
+            /// This color for Drawer's Hamburger Icon!!!
+            iconTheme: IconThemeData(color: Colors.white),
+            centerTitle: true,
+            title: SvgPicture.asset('assets/svg/univent.svg'),
+            flexibleSpace: Container(decoration: CommonDecorations.appBarGreyDecoration()),
+          ),
+          body: Stack(
+            children: [
+              SizedBox(
+                width: MediaQuery.sizeOf(context).width,
+                height: MediaQuery.sizeOf(context).height,
+                child: Image(image: AssetImage('assets/png/devrim.png'), fit: BoxFit.cover),
+              ),
+              Container(
+                color: ColorConstants.white.withValues(alpha: 0.5),
+                width: MediaQuery.sizeOf(context).width,
+                height: MediaQuery.sizeOf(context).height,
+              ),
+              const HomeForm(),
+            ],
+          ),
+          endDrawer: _buildDrawer(context),
         ),
-        body: HomeForm(),
-        endDrawer: _buildDrawer(context),
       ),
     );
   }
@@ -69,15 +86,11 @@ class HomePage extends StatelessWidget {
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
-                _buildDrawerItem(context, Icons.sports_tennis, 'Clubs', '/clubs'),
-                _buildDrawerItem(context, Icons.calendar_today, 'Events', '/events'),
-                _buildDrawerItem(context, Icons.admin_panel_settings, 'Admin Panel', '/admin'),
-                _buildDrawerItem(context, Icons.admin_panel_settings, 'Calendar', '/calendar'),
-                if (true
-                //_user != null
-                ) ...[
-                  _buildDrawerItem(context, Icons.list_alt, 'Rezervasyonlarım', '/my-reservations'),
-                ],
+                _buildDrawerItem(context, Icons.home, 'Home', '/'),
+                _buildDrawerItem(context, Icons.calendar_today, 'Calendar', '/'),
+                _buildDrawerItem(context, Icons.short_text, 'Club List', '/clubList'),
+                _buildDrawerItem(context, Icons.edit_calendar_outlined, 'Event List', '/eventList'),
+                _buildDrawerItem(context, Icons.settings, 'Settings', '/clubDashboard'),
               ],
             ),
           ),
@@ -153,7 +166,7 @@ class HomePage extends StatelessWidget {
       selectedTileColor: Theme.of(context).primaryColor.withValues(alpha: 0.1),
       onTap: () {
         Navigator.pop(context);
-        context.go(route);
+        context.push(route);
       },
     );
   }

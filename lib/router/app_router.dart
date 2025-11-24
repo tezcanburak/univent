@@ -4,6 +4,7 @@ import 'package:univent/pages/club/ui/club_management/club_management_page.dart'
 import 'package:univent/pages/club/ui/dashboard/club_dashboard_page.dart';
 import 'package:univent/pages/club/ui/data_insight/data_insight_page.dart';
 import 'package:univent/pages/club/ui/event_management/event_management_page.dart';
+import 'package:univent/pages/event/ui/event_info_page.dart';
 import 'package:univent/pages/home/ui/home_page.dart';
 import 'package:univent/pages/login/ui/club/club_login_page.dart';
 import 'package:univent/pages/login/ui/student/student_login_page.dart';
@@ -18,10 +19,10 @@ class AppRouter {
   static const String dataInsight = '/dataInsight';
   static const String eventManagement = '/eventManagement';
   static const String clubManagement = '/clubManagement';
-
+  static const String eventInfo = '/eventInfo';
 
   static final GoRouter router = GoRouter(
-    initialLocation: clubDashboard,
+    initialLocation: home,
     routes: [
       GoRoute(path: home, name: 'home', builder: (context, state) => const HomePage()),
       GoRoute(path: clubLogin, name: 'clubLogin', builder: (context, state) => const ClubLoginPage()),
@@ -31,7 +32,8 @@ class AppRouter {
       GoRoute(path: dataInsight, name: 'dataInsight', builder: (context, state) => const DataInsightPage()),
       GoRoute(path: eventManagement, name: 'eventManagement', builder: (context, state) => const EventManagementPage()),
       GoRoute(path: clubManagement, name: 'clubManagement', builder: (context, state) => const ClubManagementPage()),
-     /* GoRoute(path: signup, name: 'signup', builder: (context, state) => const SignUpPage()),
+      GoRoute(path: eventInfo, name: 'eventInfo', builder: (context, state) => const EventInfoPage()),
+      /* GoRoute(path: signup, name: 'signup', builder: (context, state) => const SignUpPage()),
       GoRoute(path: makeReservation, name: 'makeReservation', builder: (context, state) => const MakeReservationPageResponsive()),
       GoRoute(path: myReservations, name: 'myReservations', builder: (context, state) => const MyReservationsPage()),
       GoRoute(path: tokenPackages, name: 'tokenPackages', builder: (context, state) => const TokenPackagesPage()),

@@ -1,46 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
+// import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
+import 'package:go_router/go_router.dart';
 import 'package:univent/constants/color.dart';
 
 class HomeForm extends StatefulWidget {
-  HomeForm({super.key});
-
-  final int selectedIndex = 0;
-  final double? widthPercent = 0;
+  const HomeForm({super.key});
 
   @override
   State<HomeForm> createState() => _HomeFormState();
 }
 
 class _HomeFormState extends State<HomeForm> {
-  final ScrollController _scrollController = ScrollController();
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
-
-  void _onTabSelected(int index) {
-    if (index != widget.selectedIndex) {
-      _scrollToSelectedTab(index);
-    }
-  }
-
-  void _scrollToSelectedTab(int index) {
-    double tabWidth = MediaQuery.sizeOf(context).width / 2 - 30; // Replace with dynamic width if needed.
-    double position = index * tabWidth - (MediaQuery.of(context).size.width - tabWidth) / 2;
-
-    // Clamp the position to avoid overscrolling
-    position = position.clamp(_scrollController.position.minScrollExtent, _scrollController.position.maxScrollExtent);
-
-    _scrollController.animateTo(position, duration: const Duration(milliseconds: 200), curve: Curves.easeInOut);
-  }
+  int _selectedFilter = 0; // 0: General, 1: Personal, 2: Upcoming, 3: Completed
 
   @override
   Widget build(BuildContext context) {
@@ -55,87 +26,142 @@ class _HomeFormState extends State<HomeForm> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              controller: _scrollController,
-              child: Container(
-                padding: EdgeInsets.all(1),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(9),
-                  boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.25), offset: const Offset(0, 2), blurRadius: 2)],
-                ),
-                child: FlutterToggleTab(
-                  borderRadius: 8,
-                  selectedIndex: 0,
-                  selectedBackgroundColors: [ColorConstants.red, ColorConstants.red],
-                  unSelectedBackgroundColors: const [Colors.white],
-                  selectedTextStyle: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600),
-                  unSelectedTextStyle: const TextStyle(color: Colors.grey, fontSize: 12, fontWeight: FontWeight.w400),
-                  dataTabs: [
-                    DataTab(title: 'Completed'),
-                    DataTab(title: 'Upcoming'),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(child: _filterButton('General', 0)),
+                    const SizedBox(width: 16),
+                    Expanded(child: _filterButton('Personal', 1)),
                   ],
-                  selectedLabelIndex: _onTabSelected,
-                  width: 100 * (width - 20) / (width), // % This is percent width (widthInPercent)
                 ),
-              ),
+                const SizedBox(height: 14),
+                Row(
+                  children: [
+                    Expanded(child: _filterButton('Upcoming', 2)),
+                    const SizedBox(width: 16),
+                    Expanded(child: _filterButton('Completed', 3)),
+                  ],
+                ),
+              ],
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: GridView.builder(
               shrinkWrap: true,
               padding: EdgeInsets.zero,
               physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 0.8),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 0.7,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+              ),
               itemCount: data.length,
               itemBuilder: (context, index) {
-                return _eventItem(data[index][0], data[index][1], data[index][2], data[index][3], data[index][4], ((width - 36) / 2));
+                return _eventItem(
+                  data[index][0],
+                  data[index][1],
+                  data[index][2],
+                  data[index][3],
+                  data[index][4],
+                  ((width - 36) / 2),
+                  onTap: () {
+                    context.push(
+                      '/eventInfo',
+                      extra: {
+                        'image': data[index][0],
+                        'name': data[index][1],
+                        'location': data[index][2],
+                        'date': data[index][3],
+                        'cost': data[index][4],
+                      },
+                    );
+                  },
+                );
               },
             ),
           ),
+          const SizedBox(height: 20),
         ],
+      ),
+    );
+  }
+
+  Widget _filterButton(String title, int index) {
+    final bool isSelected = _selectedFilter == index;
+
+    return SizedBox(
+      height: 48,
+      child: OutlinedButton(
+        onPressed: () {
+          setState(() {
+            _selectedFilter = index;
+          });
+        },
+        style: OutlinedButton.styleFrom(
+          backgroundColor: Colors.white.withValues(alpha: 0.95),
+          side: BorderSide(color: ColorConstants.red, width: 1.3),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        ),
+        child: Text(
+          title,
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: isSelected ? ColorConstants.red : Colors.black87),
+        ),
       ),
     );
   }
 }
 
-Widget _eventItem(String image, String name, String location, String date, String cost, double width) {
-  return Container(
-    width: width,
-    child: Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Center(child: Image(image: AssetImage(image))),
-        Row(
-          children: [
-            SizedBox(width: 12),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name,
-                  maxLines: 2,
-                  textAlign: TextAlign.start,
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                Text(location, textAlign: TextAlign.start),
-                Text(date, textAlign: TextAlign.start),
-                Text(
-                  cost,
-                  textAlign: TextAlign.start,
-                  style: TextStyle(color: ColorConstants.red, fontWeight: FontWeight.bold),
-                ),
-              ],
+Widget _eventItem(String image, String name, String location, String date, String cost, double width, {VoidCallback? onTap}) {
+  return InkWell(
+    onTap: onTap,
+    borderRadius: BorderRadius.circular(12),
+    child: SizedBox(
+      width: width,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Center(
+              child: Image(image: AssetImage(image), fit: BoxFit.cover),
             ),
-          ],
-        ),
-      ],
+          ),
+          Row(
+            children: [
+              SizedBox(width: 12),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: width - 40,
+                    child: Text(
+                      name,
+                      maxLines: 2,
+                      textAlign: TextAlign.start,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Text(location, textAlign: TextAlign.start),
+                  Text(date, textAlign: TextAlign.start),
+                  Text(
+                    cost,
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: ColorConstants.red, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
     ),
   );
 }
