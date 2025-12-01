@@ -1,0 +1,132 @@
+part of 'calendar_widget.dart';
+
+class WeekView extends StatelessWidget {
+  WeekView({
+    super.key,
+    required this.dates,
+    required this.selectedDate,
+    required this.lineHeight,
+    this.highlightMonth,
+    this.onChanged,
+    this.events,
+    required this.innerDot,
+    required this.keepLineSize,
+    this.textStyle,
+  });
+
+  final DateTime todayDate = DateTime.now().toZeroTime();
+  final List<DateTime> dates;
+  final double lineHeight;
+  final int? highlightMonth;
+  final DateTime selectedDate;
+  final ValueChanged<DateTime>? onChanged;
+  final List<DateTime>? events;
+  final bool innerDot;
+  final bool keepLineSize;
+  final TextStyle? textStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return SizedBox(
+      height: lineHeight,
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: List<Widget>.generate(
+          7,
+          (dayIndex) {
+            final date = dates[dayIndex];
+            final isToday = date.isAtSameMomentAs(todayDate);
+            final isSelected = date.isAtSameMomentAs(selectedDate);
+            final isHighlight = highlightMonth == date.month;
+
+            final hasEvent = events!.indexWhere((element) => element.isSameDate(date));
+
+            if (keepLineSize) {
+              return InkResponse(
+                onTap: onChanged != null ? () => onChanged!(date) : null,
+                child: Container(
+                  width: 32,
+                  decoration: BoxDecoration(
+                    color: isSelected
+                        ? theme.primaryColor
+                        : isToday
+                            ? theme.highlightColor
+                            : null,
+                    borderRadius: BorderRadius.circular(12),
+                    shape: BoxShape.rectangle,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '${date.day}',
+                        style: textStyle?.copyWith(
+                          color: isSelected || isToday
+                              ? theme.colorScheme.onPrimary
+                              : isHighlight || highlightMonth == null
+                                  ? null
+                                  : theme.disabledColor,
+                          fontWeight: isSelected && textStyle?.fontWeight != null
+                              ? FontWeight.values[textStyle!.fontWeight!.index + 2]
+                              : textStyle?.fontWeight,
+                        ),
+                      ),
+                      if (!hasEvent.isNegative)
+                        Container(
+                          height: 12,
+                          width: 12,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: isSelected ? theme.colorScheme.onPrimary : ColorConstants.lightGrey,
+                          ),
+                        )
+                    ],
+                  ),
+                ),
+              );
+            }
+
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                DateBox(
+                  width: innerDot ? 32 : 24,
+                  height: innerDot ? 32 : 24,
+                  showDot: innerDot,
+                  onPressed: onChanged != null ? () => onChanged!(date) : null,
+                  isSelected: isSelected,
+                  isToday: isToday,
+                  hasEvent: !hasEvent.isNegative,
+                  child: Text(
+                    '${date.day}',
+                    maxLines: 1,
+                    style: TextStyle(
+                      color: isSelected || isToday
+                          ? theme.colorScheme.onPrimary
+                          : isHighlight || highlightMonth == null
+                              ? null
+                              : theme.disabledColor,
+                    ),
+                  ),
+                ),
+                if (!innerDot && !hasEvent.isNegative)
+                  Container(
+                    height: 6,
+                    width: 6,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: theme.primaryColor,
+                    ),
+                  )
+              ],
+            );
+          },
+          growable: false,
+        ),
+      ),
+    );
+  }
+}
