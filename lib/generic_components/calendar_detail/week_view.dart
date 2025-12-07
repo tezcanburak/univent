@@ -50,8 +50,10 @@ class WeekView extends StatelessWidget {
                 child: Container(
                   width: 32,
                   decoration: BoxDecoration(
+                    /// TODO: ABİ BURASI
+                    /// TODO: HERE IS THE CHANGE BOX COLOR FOR CALENDAR
                     color: isSelected
-                        ? theme.primaryColor
+                        ? ColorConstants.red
                         : isToday
                             ? theme.highlightColor
                             : null,

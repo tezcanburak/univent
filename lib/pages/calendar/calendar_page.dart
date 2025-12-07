@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:univent/generic_components/app_bar.dart';
 
-import 'event_info_form.dart';
+import 'calendar_form.dart';
 
-class EventInfoPage extends StatelessWidget {
-  const EventInfoPage({super.key});
+class CalendarPage extends StatelessWidget {
+  const CalendarPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class EventInfoPage extends StatelessWidget {
         extendBody: true,
         extendBodyBehindAppBar: true,
         resizeToAvoidBottomInset: false,
-        appBar: CustomAppBar(pageContext: context, showBack: true,isCenter: true,),
+        appBar: CustomAppBar(pageContext: context, showBack: true, isCenter: true),
         body: Stack(
           children: [
             SizedBox(
@@ -24,7 +24,9 @@ class EventInfoPage extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height,
               child: Image(image: AssetImage('assets/png/devrim.png'), fit: BoxFit.cover),
             ),
-            const EventInfoForm(),
+            Container(width: MediaQuery.sizeOf(context).width, height: MediaQuery.sizeOf(context).height, color: Colors.black.withValues(alpha: 0.6)),
+
+            const CalendarForm(),
           ],
         ),
       ),

@@ -13,143 +13,142 @@ class StudentLoginForm extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
       margin: const EdgeInsets.only(top: 130, left: 20, right: 20, bottom: 20),
       decoration: CommonDecorations.lightGreyBackgroundDecoration(),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          // Title
-          Text(
-            'Student Login',
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 8),
-          // Subtitle
-          Text('Please sign in to access UNIVENT.', textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodyMedium),
-
-          const SizedBox(height: 32),
-
-          // Metu Mail label
-          const Text('Metu Mail', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-          const SizedBox(height: 8),
-
-          // Metu Mail text field
-          const TextField(
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
-              border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)), borderSide: BorderSide.none),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // Title
+            Text(
+              'Student Login',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
-            keyboardType: TextInputType.emailAddress,
-          ),
+            const SizedBox(height: 8),
+            // Subtitle
+            Text('Please sign in to access UNIVENT.', textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodyMedium),
 
-          const SizedBox(height: 20),
+            const SizedBox(height: 12),
 
-          // Send Code button
-          SizedBox(
-            height: 64,
-            child: ElevatedButton(
-              onPressed: () {
-                // TODO: send code
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: ColorConstants.red,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(10)),
+            // Metu Mail label
+            const Text('Metu Mail', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+            const SizedBox(height: 8),
+
+            // Metu Mail text field
+            const TextField(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)), borderSide: BorderSide.none),
               ),
-              child: const Text(
-                'Send Code',
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),
+              keyboardType: TextInputType.emailAddress,
+            ),
+
+            const SizedBox(height: 12),
+
+            // Send Code button
+            SizedBox(
+              height: 52,
+              child: ElevatedButton(
+                onPressed: () {
+                  // TODO: send code
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: ColorConstants.red,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(10)),
+                ),
+                child: const Text(
+                  'Send Code',
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),
+                ),
               ),
             ),
-          ),
 
-          const SizedBox(height: 28),
+            const SizedBox(height: 16),
 
-          // Confirmation Code label
-          const Text('Confirmation Code', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-          const SizedBox(height: 8),
+            // Confirmation Code label
+            const Text('Confirmation Code', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+            const SizedBox(height: 8),
 
-          // Confirmation Code text field
-          const TextField(
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
-              border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)), borderSide: BorderSide.none),
-            ),
-            keyboardType: TextInputType.number,
-          ),
-
-          const SizedBox(height: 20),
-
-          // Login button
-          SizedBox(
-            height: 64,
-            child: ElevatedButton(
-              onPressed: () => context.go(AppRouter.home),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: ColorConstants.red,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(10)),
+            // Confirmation Code text field
+            const TextField(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)), borderSide: BorderSide.none),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(Icons.login, size: 26, color: Colors.white),
-                  SizedBox(width: 8),
-                  Text(
-                    'Login',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),
+              keyboardType: TextInputType.number,
+            ),
+
+            const SizedBox(height: 12),
+
+            // Login button
+            SizedBox(
+              height: 52,
+              child: ElevatedButton(
+                onPressed: () => context.go(AppRouter.home),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: ColorConstants.red,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(10)),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.login, size: 26, color: Colors.white),
+                    SizedBox(width: 8),
+                    Text(
+                      'Login',
+                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 12),
+
+            // Info text
+            Text.rich(
+              TextSpan(
+                text: 'Code has sent to your ',
+                children: [
+                  const TextSpan(
+                    text: 'metu.edu.tr',
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
+                  const TextSpan(text: ' e-mail address.\nEnter the code to login.'),
                 ],
               ),
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
-          ),
 
-          const SizedBox(height: 28),
+            const SizedBox(height: 12),
 
-          // Info text
-          Text.rich(
-            TextSpan(
-              text: 'Code has sent to your ',
-              children: [
-                const TextSpan(
-                  text: 'metu.edu.tr',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                const TextSpan(text: ' e-mail address.\nEnter the code to login.'),
-              ],
+            // Error text
+            Text.rich(
+              const TextSpan(
+                text:
+                    'You entered a different e-mail address.\n'
+                    'Only ',
+                children: [
+                  TextSpan(
+                    text: 'METU',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(text: ' students can use this app.'),
+                ],
+              ),
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
 
-          const SizedBox(height: 24),
+            const SizedBox(height: 12),
 
-          // Error text
-          Text.rich(
-            const TextSpan(
-              text:
-                  'You entered a different e-mail address.\n'
-                  'Only ',
-              children: [
-                TextSpan(
-                  text: 'METU',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                TextSpan(text: ' students can use this app.'),
-              ],
-            ),
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
-
-          const SizedBox(height: 32),
-
-          // Club Login button
-          SizedBox(
-            height: 64,
-            child: ElevatedButton(
+            // Club Login button
+            ElevatedButton(
               onPressed: () => context.push(AppRouter.clubLogin),
               style: ElevatedButton.styleFrom(
                 backgroundColor: ColorConstants.black,
@@ -160,8 +159,24 @@ class StudentLoginForm extends StatelessWidget {
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),
               ),
             ),
-          ),
-        ],
+
+            SizedBox(height: 12),
+            // Back to Home Page
+            Center(
+              child: GestureDetector(
+                onTap: () => context.go(AppRouter.home),
+                child: const Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.arrow_back, size: 20),
+                    SizedBox(width: 4),
+                    Text("Back to Home Page", style: TextStyle(fontSize: 16)),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

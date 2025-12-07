@@ -38,9 +38,8 @@ class EventInfoForm extends StatelessWidget {
             // Poster Card
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.12), blurRadius: 18, offset: const Offset(0, 8))],
+                boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.12), blurRadius: 16, offset: const Offset(0, 8))],
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),

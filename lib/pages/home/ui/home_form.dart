@@ -58,9 +58,9 @@ class _HomeFormState extends State<HomeForm> {
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 0.7,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
+                childAspectRatio: 0.6,
+                crossAxisSpacing: 2,
+                mainAxisSpacing: 2,
               ),
               itemCount: data.length,
               itemBuilder: (context, index) {
@@ -121,7 +121,7 @@ class _HomeFormState extends State<HomeForm> {
 Widget _eventItem(String image, String name, String location, String date, String cost, double width, {VoidCallback? onTap}) {
   return InkWell(
     onTap: onTap,
-    borderRadius: BorderRadius.circular(12),
+    borderRadius: BorderRadius.circular(10),
     child: SizedBox(
       width: width,
       child: Column(
@@ -129,9 +129,9 @@ Widget _eventItem(String image, String name, String location, String date, Strin
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(10),
             child: Center(
-              child: Image(image: AssetImage(image), fit: BoxFit.cover),
+              child: Image(image: AssetImage(image), fit: BoxFit.cover, width: width, height: width),
             ),
           ),
           Row(

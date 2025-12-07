@@ -31,4 +31,16 @@ class CommonDecorations {
       boxShadow: [BoxShadow(color: ColorConstants.black.withValues(alpha: 0.25), offset: Offset(0, 2), blurRadius: 4)],
     );
   }
+
+  static Decoration gradientGreyDecoration() {
+    return BoxDecoration(
+      gradient: LinearGradient(
+        colors: [ColorConstants.lightGrey, ColorConstants.grey, ColorConstants.grey, ColorConstants.lightGrey],
+        begin: Alignment.centerLeft,
+        end: Alignment.centerRight,
+        stops: const [0, 0.05, 0.95, 1],
+      ),
+      borderRadius: BorderRadius.circular(10),
+    );
+  }
 }

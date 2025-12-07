@@ -27,10 +27,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      centerTitle: isCenter,
-      title: isCenter ? Center(child: title ?? defaultTitle()) : Center(child: title ?? defaultTitle()),
+      centerTitle: true,
+      title: Center(child: title ?? defaultTitle()),
       flexibleSpace: Container(decoration: CommonDecorations.appBarGreyDecoration()),
-      actions: [...?widgetList, showBack ? const AppBarBackArrow() : Container()],
+      leading: showBack ? const AppBarBackArrow() : const SizedBox(),
+      actions: [
+        ...?widgetList,
+        if (showBack && (widgetList == null || widgetList!.isEmpty))
+          Opacity(
+            opacity: 0,
+            child: const SizedBox(width: kToolbarHeight),
+          ),
+      ],
     );
   }
 

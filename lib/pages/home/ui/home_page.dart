@@ -28,6 +28,7 @@ class HomePage extends StatelessWidget {
           ),
           body: Stack(
             children: [
+              Container(width: MediaQuery.sizeOf(context).width, height: MediaQuery.sizeOf(context).height, color: Colors.black.withValues(alpha: 0.6)),
               SizedBox(
                 width: MediaQuery.sizeOf(context).width,
                 height: MediaQuery.sizeOf(context).height,
@@ -86,11 +87,13 @@ class HomePage extends StatelessWidget {
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
-                _buildDrawerItem(context, Icons.home, 'Home', '/'),
-                _buildDrawerItem(context, Icons.calendar_today, 'Calendar', '/'),
+              //  _buildDrawerItem(context, Icons.home, 'Home', '/'),
+                _buildDrawerItem(context, Icons.calendar_today, 'Calendar', '/calendar'),
                 _buildDrawerItem(context, Icons.short_text, 'Club List', '/clubList'),
                 _buildDrawerItem(context, Icons.edit_calendar_outlined, 'Event List', '/eventList'),
                 _buildDrawerItem(context, Icons.settings, 'Settings', '/clubDashboard'),
+                _buildDrawerItem(context, Icons.login, 'Club Login', '/clubLogin'),
+                _buildDrawerItem(context, Icons.login, 'Student Login', '/studentLogin'),
               ],
             ),
           ),

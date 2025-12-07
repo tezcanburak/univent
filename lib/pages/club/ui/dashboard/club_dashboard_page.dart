@@ -16,9 +16,10 @@ class ClubDashboardPage extends StatelessWidget {
         extendBody: true,
         extendBodyBehindAppBar: true,
         resizeToAvoidBottomInset: false,
-        appBar: CustomAppBar(pageContext: context, showBack: false),
+        appBar: CustomAppBar(pageContext: context, showBack: true),
         body: Stack(
           children: [
+            Container(width: MediaQuery.sizeOf(context).width, height: MediaQuery.sizeOf(context).height, color: Colors.black.withValues(alpha: 0.6)),
             SizedBox(
               width: MediaQuery.sizeOf(context).width,
               height: MediaQuery.sizeOf(context).height,

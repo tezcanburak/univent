@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:univent/pages/calendar/calendar_page.dart';
 import 'package:univent/pages/club/ui/club_management/club_management_page.dart';
 import 'package:univent/pages/club/ui/dashboard/club_dashboard_page.dart';
 import 'package:univent/pages/club/ui/data_insight/data_insight_page.dart';
@@ -9,6 +10,7 @@ import 'package:univent/pages/home/ui/home_page.dart';
 import 'package:univent/pages/login/ui/club/club_login_page.dart';
 import 'package:univent/pages/login/ui/student/student_login_page.dart';
 import 'package:univent/register/club/ui/club_register_page.dart';
+import 'package:univent/style/common_decorations.dart';
 
 class AppRouter {
   static const String home = '/';
@@ -20,6 +22,7 @@ class AppRouter {
   static const String eventManagement = '/eventManagement';
   static const String clubManagement = '/clubManagement';
   static const String eventInfo = '/eventInfo';
+  static const String calendar = '/calendar';
 
   static final GoRouter router = GoRouter(
     initialLocation: home,
@@ -33,6 +36,7 @@ class AppRouter {
       GoRoute(path: eventManagement, name: 'eventManagement', builder: (context, state) => const EventManagementPage()),
       GoRoute(path: clubManagement, name: 'clubManagement', builder: (context, state) => const ClubManagementPage()),
       GoRoute(path: eventInfo, name: 'eventInfo', builder: (context, state) => const EventInfoPage()),
+      GoRoute(path: calendar, name: 'calendar', builder: (context, state) => const CalendarPage()),
       /* GoRoute(path: signup, name: 'signup', builder: (context, state) => const SignUpPage()),
       GoRoute(path: makeReservation, name: 'makeReservation', builder: (context, state) => const MakeReservationPageResponsive()),
       GoRoute(path: myReservations, name: 'myReservations', builder: (context, state) => const MyReservationsPage()),
@@ -51,7 +55,14 @@ class AppRouter {
             const SizedBox(height: 8),
             Text('Aradığınız sayfa mevcut değil.', style: Theme.of(context).textTheme.bodyMedium),
             const SizedBox(height: 24),
-            ElevatedButton(onPressed: () => context.go(home), child: const Text('Ana Sayfaya Dön')),
+            InkWell(
+              onTap: () => context.go(home),
+              child: Container(
+                padding: EdgeInsets.all(12),
+                decoration: CommonDecorations.gradientGreyDecoration(),
+                child: const Text('Ana Sayfaya Dön', style: TextStyle(color: Colors.white,fontSize: 20)),
+              ),
+            ),
           ],
         ),
       ),

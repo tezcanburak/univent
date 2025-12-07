@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:univent/constants/color.dart';
+import 'package:univent/router/app_router.dart';
 import 'package:univent/style/common_decorations.dart';
 
 class ClubLoginForm extends StatelessWidget {
@@ -120,7 +122,7 @@ class ClubLoginForm extends StatelessWidget {
           // Back to Home Page
           Center(
             child: GestureDetector(
-              onTap: () {},
+              onTap: () => context.go(AppRouter.home),
               child: const Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [

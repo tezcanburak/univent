@@ -171,7 +171,7 @@ class _CalendarWidgetState extends State<CalendarWidget> with SingleTickerProvid
     return Material(
       color: Colors.transparent,
       child: DefaultTextStyle.merge(
-        style: theme.textTheme.bodyMedium,
+        style: theme.textTheme.bodyMedium?.copyWith(color: Colors.white),
         child: GestureDetector(
           onVerticalDragStart: (details) {
             _captureOffset = details.globalPosition;

@@ -48,7 +48,6 @@ class DateBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return UnconstrainedBox(
       alignment: Alignment.center,
       child: InkResponse(
@@ -63,9 +62,9 @@ class DateBox extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: isSelected
-                ? theme.primaryColor
+                ? ColorConstants.red
                 : isToday
-                ? theme.highlightColor
+                ? Colors.lightBlueAccent
                 : null,
             borderRadius: borderRadius,
           ),
@@ -81,8 +80,8 @@ class DateBox extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: isSelected
-                        ? theme.colorScheme.onPrimary
-                        : ColorConstants.lightGrey,
+                        ? ColorConstants.lightGrey
+                        : ColorConstants.grey,
                   ),
                 ),
             ],
