@@ -21,7 +21,6 @@ class _CalendarState extends State<Calendar> {
     final theme = Theme.of(context).copyWith(hintColor: Colors.white);
     var homeBloc = context.read<HomeBloc>();
     final createdDates = homeBloc.state.eventList.map((e) => HomeBloc.dateTimeFormat.parse(e.dateTimeText!)).toList();
-    print(createdDates);
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         var selectedDate = homeBloc.state.selectedDate;

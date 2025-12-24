@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:univent/constants/color.dart';
 import 'package:univent/generic_components/app_bar.dart';
+import 'package:univent/generic_components/drawer.dart';
 
 import 'club_dashboard_form.dart';
 
@@ -34,6 +35,7 @@ class ClubDashboardPage extends StatelessWidget {
             const ClubDashboardForm(),
           ],
         ),
+        endDrawer: UniventDrawer(),
       ),
     );
   }
