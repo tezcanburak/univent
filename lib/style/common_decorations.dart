@@ -16,7 +16,7 @@ class CommonDecorations {
   static Decoration appBarGreyDecoration() {
     return BoxDecoration(
       borderRadius: const BorderRadius.only(bottomRight: Radius.circular(8), bottomLeft: Radius.circular(8)),
-      gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [ColorConstants.black, ColorConstants.grey]),
+      gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [ColorConstants.darkGrey, ColorConstants.darkGrey]),
     );
   }
 

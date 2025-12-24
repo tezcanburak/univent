@@ -1,70 +1,35 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class Event{
-  final String? uid;
-  final String? subject;
-  final String? textFromAi;
-  final DateTime? createdAt;
+class Event {
+  final String? title;
+  final String? community;
+  final String? dateTimeText;
+  final String? imageAsset;
 
-  const Event({
-    required this.uid,
-    required this.subject,
-    required this.createdAt,
-    required this.textFromAi,
-  });
+  const Event({required this.title, required this.community, required this.dateTimeText, required this.imageAsset});
 
-  Event copyWith({
-    String? uid,
-    String? subject,
-    String? textFromAi,
-    DateTime? createdAt,
-  }) {
+  Event copyWith({String? title, String? community, String? dateTimeText, String? imageAsset}) {
     return Event(
-      uid: uid ?? this.uid,
-      subject: subject ?? this.subject,
-      createdAt: createdAt ?? this.createdAt,
-      textFromAi: textFromAi ?? this.textFromAi,
+      title: title ?? this.title,
+      community: community ?? this.community,
+      imageAsset: imageAsset ?? this.imageAsset,
+      dateTimeText: dateTimeText ?? this.dateTimeText,
     );
   }
 
-  Map<String, dynamic> toJson() => {
-    'uid': uid,
-    'subject': subject,
-    'textFromAi': textFromAi,
-    'createdAt': DateTime.now(),
-  };
+  Map<String, dynamic> toJson() => {'uid': title, 'subject': community, 'dateTimeText': dateTimeText, 'imageAsset': imageAsset};
 
   factory Event.fromJson(Map<String, dynamic> json) {
-    return Event(
-      uid: json['uid'],
-      subject: json['subject'],
-      textFromAi: json['textFromAi'],
-      createdAt: json['createdAt'].toDate(),
-    );
+    return Event(title: json['uid'], community: json['subject'], dateTimeText: json['dateTimeText'], imageAsset: json['imageAsset']);
   }
 
   factory Event.fromFirestore(DocumentSnapshot doc) {
     if (!doc.exists) {
-      return const Event(
-        uid: '',
-        subject: '',
-        textFromAi: '',
-        createdAt: null,
-      );
+      return const Event(title: '', community: '', dateTimeText: '', imageAsset: '');
     }
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
-    return Event(
-      uid: data['uid'],
-      subject: data['subject'],
-      textFromAi: data['textFromAi'],
-      createdAt: data['createdAt'].toDate(),
-    );
+    return Event(title: data['uid'], community: data['subject'], dateTimeText: data['dateTimeText'], imageAsset: data['imageAsset']);
   }
 
-  const Event.empty()
-      : uid = null,
-        subject = null,
-        createdAt = null,
-        textFromAi = null;
+  const Event.empty() : title = null, community = null, imageAsset = null, dateTimeText = null;
 }

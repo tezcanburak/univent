@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:univent/generic_components/app_bar.dart';
+import 'package:univent/generic_components/drawer.dart';
 
 import 'calendar_form.dart';
 
@@ -29,6 +30,7 @@ class CalendarPage extends StatelessWidget {
             const CalendarForm(),
           ],
         ),
+        endDrawer: UniventDrawer(),
       ),
     );
   }

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:univent/generic_components/app_bar.dart';
+import 'package:univent/generic_components/drawer.dart';
 
-import 'event_info_form.dart';
+import 'club_register_form.dart';
 
-class EventInfoPage extends StatelessWidget {
-  const EventInfoPage({super.key});
+class ClubRegisterPage extends StatelessWidget {
+  const ClubRegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class EventInfoPage extends StatelessWidget {
         extendBody: true,
         extendBodyBehindAppBar: true,
         resizeToAvoidBottomInset: false,
-        appBar: CustomAppBar(pageContext: context, showBack: true,isCenter: true,),
+        appBar: CustomAppBar(pageContext: context, showBack: true),
         body: Stack(
           children: [
             SizedBox(
@@ -24,9 +25,10 @@ class EventInfoPage extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height,
               child: Image(image: AssetImage('assets/png/devrim.png'), fit: BoxFit.cover),
             ),
-            const EventInfoForm(),
+            const ClubRegisterForm(),
           ],
         ),
+        endDrawer: UniventDrawer(),
       ),
     );
   }

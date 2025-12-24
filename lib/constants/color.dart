@@ -14,6 +14,7 @@ Color hexToColor(String hex) {
 class ColorConstants {
   static Color white = hexToColor('#F8F8F8');
   static Color red = hexToColor('#E31837');
+  static Color darkGrey = hexToColor('#4C4C4C');
   static Color grey = hexToColor('#717073');
   static Color lightGrey = hexToColor('#D9D9D9');
   static Color black = hexToColor('#000000');

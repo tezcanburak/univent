@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:univent/constants/color.dart';
 import 'package:univent/generic_components/app_bar.dart';
 
 import 'club_dashboard_form.dart';
@@ -24,6 +25,11 @@ class ClubDashboardPage extends StatelessWidget {
               width: MediaQuery.sizeOf(context).width,
               height: MediaQuery.sizeOf(context).height,
               child: Image(image: AssetImage('assets/png/devrim.png'), fit: BoxFit.cover),
+            ),
+            Container(
+              color: ColorConstants.black.withValues(alpha: 0.3),
+              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height,
             ),
             const ClubDashboardForm(),
           ],

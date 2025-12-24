@@ -28,16 +28,37 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       automaticallyImplyLeading: false,
       centerTitle: true,
+      iconTheme: const IconThemeData(color: Colors.white),
       title: Center(child: title ?? defaultTitle()),
       flexibleSpace: Container(decoration: CommonDecorations.appBarGreyDecoration()),
-      leading: showBack ? const AppBarBackArrow() : const SizedBox(),
+      leading: showBack ? const AppBarBackArrow() : null,
       actions: [
         ...?widgetList,
-        if (showBack && (widgetList == null || widgetList!.isEmpty))
-          Opacity(
-            opacity: 0,
-            child: const SizedBox(width: kToolbarHeight),
-          ),
+        Builder(
+          builder: (context) {
+            final scaffold = Scaffold.maybeOf(context);
+            final hasEndDrawer = scaffold?.hasEndDrawer ?? false;
+
+            if (hasEndDrawer) {
+              return IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () {
+                  scaffold!.openEndDrawer(); // 👈 opens UniventDrawer()
+                },
+              );
+            }
+
+            // Old spacer logic to keep title centered if needed
+            if (showBack && (widgetList == null || widgetList!.isEmpty)) {
+              return Opacity(
+                opacity: 0,
+                child: const SizedBox(width: kToolbarHeight),
+              );
+            }
+
+            return const SizedBox.shrink();
+          },
+        ),
       ],
     );
   }

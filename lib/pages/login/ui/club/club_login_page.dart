@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:univent/generic_components/app_bar.dart';
+import 'package:univent/generic_components/drawer.dart';
 
 import 'club_login_form.dart';
 
@@ -16,7 +17,7 @@ class ClubLoginPage extends StatelessWidget {
         extendBody: true,
         extendBodyBehindAppBar: true,
         resizeToAvoidBottomInset: false,
-        appBar: CustomAppBar(pageContext: context, showBack: false),
+        appBar: CustomAppBar(pageContext: context, showBack: true),
         body: Stack(
           children: [
             SizedBox(
@@ -27,6 +28,7 @@ class ClubLoginPage extends StatelessWidget {
             const ClubLoginForm(),
           ],
         ),
+        endDrawer: UniventDrawer(),
       ),
     );
   }

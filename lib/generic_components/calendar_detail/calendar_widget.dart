@@ -28,7 +28,7 @@ class CalendarWidget extends StatefulWidget {
     this.controller,
     this.startWeekDay,
     this.events,
-    this.weekLineHeight = 32.0,
+    this.weekLineHeight = 42.0,
     this.preloadMonthViewAmount = 13,
     this.preloadWeekViewAmount = 21,
     this.weeksInMonthViewAmount = 6,

@@ -107,7 +107,7 @@ class ClubLoginForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () => context.push(AppRouter.clubRegister),
               style: ElevatedButton.styleFrom(
                 backgroundColor: ColorConstants.red,
                 padding: const EdgeInsets.symmetric(vertical: 18),

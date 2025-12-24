@@ -16,7 +16,7 @@ class DataInsightPage extends StatelessWidget {
         extendBody: true,
         extendBodyBehindAppBar: true,
         resizeToAvoidBottomInset: false,
-        appBar: CustomAppBar(pageContext: context, showBack: false),
+        appBar: CustomAppBar(pageContext: context, showBack: true),
         body: Stack(
           children: [
             SizedBox(

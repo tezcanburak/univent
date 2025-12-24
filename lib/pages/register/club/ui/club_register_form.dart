@@ -54,7 +54,7 @@ class ClubRegisterForm extends StatelessWidget {
             _input(),
 
             const SizedBox(height: 20),
-            const Divider(),
+            const Divider(color: Colors.black),
 
             const SizedBox(height: 20),
 
@@ -78,7 +78,7 @@ class ClubRegisterForm extends StatelessWidget {
             _input(obscure: true),
 
             const SizedBox(height: 20),
-            const Divider(),
+            const Divider(color: Colors.black),
 
             const SizedBox(height: 20),
 
@@ -149,7 +149,7 @@ class ClubRegisterForm extends StatelessWidget {
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
       ),
     );

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:univent/pages/calendar/calendar_page.dart';
+import 'package:univent/pages/club/ui/club_list/club_list_page.dart';
 import 'package:univent/pages/club/ui/club_management/club_management_page.dart';
 import 'package:univent/pages/club/ui/dashboard/club_dashboard_page.dart';
 import 'package:univent/pages/club/ui/data_insight/data_insight_page.dart';
 import 'package:univent/pages/club/ui/event_management/event_management_page.dart';
-import 'package:univent/pages/event/ui/event_info_page.dart';
+import 'package:univent/pages/event/ui/event_info/event_info_page.dart';
+import 'package:univent/pages/event/ui/event_list/event_list_page.dart';
 import 'package:univent/pages/home/ui/home_page.dart';
 import 'package:univent/pages/login/ui/club/club_login_page.dart';
 import 'package:univent/pages/login/ui/student/student_login_page.dart';
-import 'package:univent/register/club/ui/club_register_page.dart';
+import 'package:univent/pages/register/club/ui/club_register_page.dart';
 import 'package:univent/style/common_decorations.dart';
 
 class AppRouter {
@@ -23,6 +25,8 @@ class AppRouter {
   static const String clubManagement = '/clubManagement';
   static const String eventInfo = '/eventInfo';
   static const String calendar = '/calendar';
+  static const String clubList = '/clubList';
+  static const String eventList = '/eventList';
 
   static final GoRouter router = GoRouter(
     initialLocation: home,
@@ -37,12 +41,8 @@ class AppRouter {
       GoRoute(path: clubManagement, name: 'clubManagement', builder: (context, state) => const ClubManagementPage()),
       GoRoute(path: eventInfo, name: 'eventInfo', builder: (context, state) => const EventInfoPage()),
       GoRoute(path: calendar, name: 'calendar', builder: (context, state) => const CalendarPage()),
-      /* GoRoute(path: signup, name: 'signup', builder: (context, state) => const SignUpPage()),
-      GoRoute(path: makeReservation, name: 'makeReservation', builder: (context, state) => const MakeReservationPageResponsive()),
-      GoRoute(path: myReservations, name: 'myReservations', builder: (context, state) => const MyReservationsPage()),
-      GoRoute(path: tokenPackages, name: 'tokenPackages', builder: (context, state) => const TokenPackagesPage()),
-      GoRoute(path: courts, name: 'courts', builder: (context, state) => const CourtsPageNew()),
-     */
+      GoRoute(path: clubList, name: 'clubList', builder: (context, state) => const ClubListPage()),
+      GoRoute(path: eventList, name: 'eventList', builder: (context, state) => const EventListPage()),
     ],
     errorBuilder: (context, state) => Scaffold(
       body: Center(
@@ -60,7 +60,7 @@ class AppRouter {
               child: Container(
                 padding: EdgeInsets.all(12),
                 decoration: CommonDecorations.gradientGreyDecoration(),
-                child: const Text('Ana Sayfaya Dön', style: TextStyle(color: Colors.white,fontSize: 20)),
+                child: const Text('Ana Sayfaya Dön', style: TextStyle(color: Colors.white, fontSize: 20)),
               ),
             ),
           ],

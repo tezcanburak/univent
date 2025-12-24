@@ -54,7 +54,7 @@ class ClubDashboardForm extends StatelessWidget {
 
             // Events Table
             Container(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(12),
               decoration: CommonDecorations.border10White(),
               child: Column(
                 children: [
@@ -77,7 +77,7 @@ class ClubDashboardForm extends StatelessWidget {
                       _ValueBox(value: 'Active'),
                     ],
                   ),
-                  SizedBox(height: 12),
+                  SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [
@@ -87,7 +87,7 @@ class ClubDashboardForm extends StatelessWidget {
                       _ValueBox(value: 'Status'),
                     ],
                   ),
-                  SizedBox(height: 12),
+                  SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [
@@ -97,7 +97,7 @@ class ClubDashboardForm extends StatelessWidget {
                       _ValueBox(value: 'Status'),
                     ],
                   ),
-                  SizedBox(height: 12),
+                  SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [
@@ -137,12 +137,12 @@ class _HeaderBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.sizeOf(context).width / 6,
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-      decoration: BoxDecoration(color: ColorConstants.red, borderRadius: BorderRadius.circular(10)),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+      decoration: BoxDecoration(color: ColorConstants.red, borderRadius: BorderRadius.circular(6)),
       child: Text(
         title,
         textAlign: TextAlign.center,
-        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 12),
       ),
     );
   }
@@ -157,12 +157,12 @@ class _ValueBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.sizeOf(context).width / 6,
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-      decoration: BoxDecoration(color: ColorConstants.lightGrey, borderRadius: BorderRadius.circular(10)),
+      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
+      decoration: BoxDecoration(color: ColorConstants.lightGrey, borderRadius: BorderRadius.circular(6)),
       child: Text(
         value,
         textAlign: TextAlign.center,
-        style: TextStyle(color: ColorConstants.black),
+        style: TextStyle(color: ColorConstants.black,fontSize: 10),
       ),
     );
   }
