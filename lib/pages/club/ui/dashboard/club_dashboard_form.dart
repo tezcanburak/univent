@@ -142,7 +142,7 @@ class _HeaderBox extends StatelessWidget {
       child: Text(
         title,
         textAlign: TextAlign.center,
-        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 12),
+        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
       ),
     );
   }
@@ -162,7 +162,7 @@ class _ValueBox extends StatelessWidget {
       child: Text(
         value,
         textAlign: TextAlign.center,
-        style: TextStyle(color: ColorConstants.black,fontSize: 10),
+        style: TextStyle(color: ColorConstants.black, fontSize: 10),
       ),
     );
   }

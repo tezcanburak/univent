@@ -40,6 +40,7 @@ class CommonDecorations {
         end: Alignment.centerRight,
         stops: const [0, 0.05, 0.95, 1],
       ),
+      boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.1), blurRadius: 10, offset: const Offset(0, 4))],
       borderRadius: BorderRadius.circular(10),
     );
   }

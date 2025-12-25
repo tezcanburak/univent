@@ -27,7 +27,7 @@ pubspec:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  flutter_launcher_icons: ^0.14.4
 
   flutter_lints: ^5.0.0
 
@@ -41,3 +41,9 @@ flutter:
     - assets/svg/
     - assets/images/
 
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/png/univenticon.png"
+  adaptive_icon_background: "#E31837"
+  adaptive_icon_foreground: "assets/png/univenticon.png"

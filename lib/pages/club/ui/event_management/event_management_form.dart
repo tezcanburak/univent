@@ -19,57 +19,38 @@ class EventManagementForm extends StatelessWidget {
             Text(
               'Event Management',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: ColorConstants.black,
-              ),
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: ColorConstants.black),
             ),
             const SizedBox(height: 32),
-        
+
             // Event Name
-            Text(
-              'Event Name',
-              style: TextStyle(fontSize: 18, color: ColorConstants.black),
-            ),
+            Text('Event Name', style: TextStyle(fontSize: 18, color: ColorConstants.black)),
             const SizedBox(height: 8),
             Container(
               decoration: CommonDecorations.border10White(),
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: const TextField(
-                decoration: InputDecoration(
-                  hintText: 'Enter',
-                  border: InputBorder.none,
-                ),
+                decoration: InputDecoration(hintText: 'Enter', border: InputBorder.none),
               ),
             ),
-        
+
             const SizedBox(height: 24),
-        
+
             // Place
-            Text(
-              'Place',
-              style: TextStyle(fontSize: 18, color: ColorConstants.black),
-            ),
+            Text('Place', style: TextStyle(fontSize: 18, color: ColorConstants.black)),
             const SizedBox(height: 8),
             Container(
               decoration: CommonDecorations.border10White(),
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: const TextField(
-                decoration: InputDecoration(
-                  hintText: 'Enter',
-                  border: InputBorder.none,
-                ),
+                decoration: InputDecoration(hintText: 'Enter', border: InputBorder.none),
               ),
             ),
-        
+
             const SizedBox(height: 24),
-        
+
             // Date
-             Text(
-              'Date',
-              style: TextStyle(fontSize: 18, color: ColorConstants.black),
-            ),
+            Text('Date', style: TextStyle(fontSize: 18, color: ColorConstants.black)),
             const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -80,10 +61,7 @@ class EventManagementForm extends StatelessWidget {
                     decoration: CommonDecorations.border10White(),
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: const TextField(
-                      decoration: InputDecoration(
-                        hintText: 'day',
-                        border: InputBorder.none,
-                      ),
+                      decoration: InputDecoration(hintText: 'day', border: InputBorder.none),
                     ),
                   ),
                 ),
@@ -93,10 +71,7 @@ class EventManagementForm extends StatelessWidget {
                     decoration: CommonDecorations.border10White(),
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: const TextField(
-                      decoration: InputDecoration(
-                        hintText: 'month',
-                        border: InputBorder.none,
-                      ),
+                      decoration: InputDecoration(hintText: 'month', border: InputBorder.none),
                     ),
                   ),
                 ),
@@ -106,53 +81,39 @@ class EventManagementForm extends StatelessWidget {
                     decoration: CommonDecorations.border10White(),
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: const TextField(
-                      decoration: InputDecoration(
-                        hintText: 'year',
-                        border: InputBorder.none,
-                      ),
+                      decoration: InputDecoration(hintText: 'year', border: InputBorder.none),
                     ),
                   ),
                 ),
               ],
             ),
-        
+
             const SizedBox(height: 24),
-        
+
             // Number of Tickets
-            Text(
-              'Number of Tickets',
-              style: TextStyle(fontSize: 18, color: ColorConstants.black),
-            ),
+            Text('Number of Tickets', style: TextStyle(fontSize: 18, color: ColorConstants.black)),
             const SizedBox(height: 8),
             Container(
               decoration: CommonDecorations.border10White(),
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: const TextField(
-                decoration: InputDecoration(
-                  hintText: 'Enter(if you are selling tickets)',
-                  border: InputBorder.none,
-                ),
+                decoration: InputDecoration(hintText: 'Enter(if you are selling tickets)', border: InputBorder.none),
               ),
             ),
-        
+
             const SizedBox(height: 24),
-        
+
             // Picture Upload
-             Text(
-              'Picture',
-              style: TextStyle(fontSize: 18, color: ColorConstants.black),
-            ),
+            Text('Picture', style: TextStyle(fontSize: 18, color: ColorConstants.black)),
             const SizedBox(height: 8),
             Container(
               height: 220,
               decoration: CommonDecorations.border10White(),
-              child:  Center(
-                child: Icon(Icons.upload, size: 40, color: ColorConstants.red),
-              ),
+              child: Center(child: Icon(Icons.upload, size: 40, color: ColorConstants.red)),
             ),
-        
+
             const SizedBox(height: 32),
-        
+
             // Buttons Row
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -160,18 +121,11 @@ class EventManagementForm extends StatelessWidget {
                 Expanded(
                   child: Container(
                     padding: const EdgeInsets.symmetric(vertical: 16),
-                    decoration: BoxDecoration(
-                      color: ColorConstants.red,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                    decoration: BoxDecoration(color: ColorConstants.red, borderRadius: BorderRadius.circular(10)),
                     child: Center(
                       child: Text(
                         'Cancel',
-                        style: TextStyle(
-                          color: ColorConstants.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: TextStyle(color: ColorConstants.white, fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -180,18 +134,11 @@ class EventManagementForm extends StatelessWidget {
                 Expanded(
                   child: Container(
                     padding: const EdgeInsets.symmetric(vertical: 16),
-                    decoration: BoxDecoration(
-                      color: ColorConstants.red,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child:  Center(
+                    decoration: BoxDecoration(color: ColorConstants.red, borderRadius: BorderRadius.circular(10)),
+                    child: Center(
                       child: Text(
                         'Save',
-                        style: TextStyle(
-                          color: ColorConstants.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: TextStyle(color: ColorConstants.white, fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),

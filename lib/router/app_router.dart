@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:univent/pages/calendar/calendar_page.dart';
+import 'package:univent/pages/club/ui/club_info/club_info_page.dart';
+import 'package:univent/pages/club/ui/club_list/club_list_form.dart';
 import 'package:univent/pages/club/ui/club_list/club_list_page.dart';
 import 'package:univent/pages/club/ui/club_management/club_management_page.dart';
 import 'package:univent/pages/club/ui/dashboard/club_dashboard_page.dart';
@@ -27,6 +29,7 @@ class AppRouter {
   static const String calendar = '/calendar';
   static const String clubList = '/clubList';
   static const String eventList = '/eventList';
+  static const String clubInfo = '/clubInfo';
 
   static final GoRouter router = GoRouter(
     initialLocation: home,
@@ -43,24 +46,68 @@ class AppRouter {
       GoRoute(path: calendar, name: 'calendar', builder: (context, state) => const CalendarPage()),
       GoRoute(path: clubList, name: 'clubList', builder: (context, state) => const ClubListPage()),
       GoRoute(path: eventList, name: 'eventList', builder: (context, state) => const EventListPage()),
+      GoRoute(
+        path: clubInfo,
+        name: 'clubInfo',
+        builder: (context, state) {
+          return ClubInfoPage(club: state.extra as ClubInfo);
+        },
+      ),
     ],
     errorBuilder: (context, state) => Scaffold(
-      body: Center(
+      // Using a soft background color or your theme's surface
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      body: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 32),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.error_outline, size: 64, color: Colors.red),
-            const SizedBox(height: 16),
-            Text('Sayfa bulunamadı', style: Theme.of(context).textTheme.headlineSmall),
-            const SizedBox(height: 8),
-            Text('Aradığınız sayfa mevcut değil.', style: Theme.of(context).textTheme.bodyMedium),
-            const SizedBox(height: 24),
+            // 1. More Stylized Icon with a background circle
+            Container(
+              padding: const EdgeInsets.all(24),
+              decoration: BoxDecoration(color: Colors.red.withOpacity(0.1), shape: BoxShape.circle),
+              child: const Icon(
+                Icons.explore_off_outlined, // Changed to a "lost" icon
+                size: 80,
+                color: Colors.redAccent,
+              ),
+            ),
+            const SizedBox(height: 32),
+
+            // 2. Clearer Typography
+            Text(
+              'Eyvah! Yolunuzu mu kaybettiniz?',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold, letterSpacing: -0.5),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              'Aradığınız sayfa kampüs sınırları içerisinde bulunamadı.',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.grey.shade600),
+            ),
+            const SizedBox(height: 40),
+
+            // 3. Modernized Button
             InkWell(
               onTap: () => context.go(home),
-              child: Container(
-                padding: EdgeInsets.all(12),
+              borderRadius: BorderRadius.circular(16), // Ensures ripple is rounded
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 200),
+                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
                 decoration: CommonDecorations.gradientGreyDecoration(),
-                child: const Text('Ana Sayfaya Dön', style: TextStyle(color: Colors.white, fontSize: 20)),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const [
+                    Icon(Icons.home_rounded, color: Colors.white),
+                    SizedBox(width: 12),
+                    Text(
+                      'Ana Sayfaya Dön',
+                      style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
