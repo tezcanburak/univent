@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:univent/constants/color.dart';
 import 'package:univent/style/common_decorations.dart';
-import 'package:go_router/go_router.dart';
-import 'package:univent/router/app_router.dart';
 
 class ClubInfo {
   final String name;
