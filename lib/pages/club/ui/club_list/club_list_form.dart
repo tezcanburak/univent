@@ -15,62 +15,62 @@ const List<ClubInfo> _clubs = [
   ClubInfo(
     name: 'Economy Community',
     logoPath: 'assets/png/clubs/econ.png',
-    description: 'Analyzing global markets and economic trends through seminars and academic discussions.',
+    description: 'Analyzing global and local economic systems through seminars, academic discussions, case studies, and guest lectures, while encouraging critical thinking about markets, policy, and sustainability.',
   ),
   ClubInfo(
     name: 'Gastronomy Community',
     logoPath: 'assets/png/clubs/gastronomy.png',
-    description: 'Exploring culinary arts, hosting workshops, and celebrating food culture from around the world.',
+    description: 'Exploring culinary arts and food culture by organizing hands-on workshops, tasting events, and seminars that celebrate cuisines from around the world and promote creativity in gastronomy.',
   ),
   ClubInfo(
     name: 'Jazz Society',
     logoPath: 'assets/png/clubs/jazz.png',
-    description: 'Promoting jazz music appreciation through live performances, jam sessions, and listening parties.',
+    description: 'Promoting jazz music appreciation and performance through live concerts, jam sessions, listening parties, and discussions on the history and evolution of jazz.',
   ),
   ClubInfo(
     name: 'Puzzle Community',
     logoPath: 'assets/png/clubs/puzzle.png',
-    description: 'Bringing students together to solve complex puzzles, riddles, and organize the annual METU Puzzle Day.',
+    description: 'Bringing students together to solve complex puzzles and riddles, improve analytical thinking skills, and organize events such as the annual METU Puzzle Day.',
   ),
   ClubInfo(
     name: 'Go Community',
     logoPath: 'assets/png/clubs/go.png',
-    description: 'Focusing on the ancient strategy game of Go, offering training for beginners and competitive tournaments.',
+    description: 'Focusing on the ancient strategy game of Go by offering beginner trainings, regular practice sessions, friendly matches, and competitive tournaments for all levels.',
   ),
   ClubInfo(
     name: 'Business Community',
     logoPath: 'assets/png/clubs/business.png',
-    description: 'Developing professional skills, networking with industry leaders, and organizing the METU Business Summit.',
+    description: 'Developing professional and leadership skills through networking events, case competitions, workshops, and large-scale organizations such as the METU Business Summit.',
   ),
   ClubInfo(
     name: 'Architecture Community',
     logoPath: 'assets/png/clubs/architecture.png',
-    description: 'A creative space for design discussions, technical workshops, and exploring the built environment.',
+    description: 'A creative space for students interested in architecture, offering design discussions, technical workshops, exhibitions, and exploration of the built environment.',
   ),
   ClubInfo(
     name: 'Media Community',
     logoPath: 'assets/png/clubs/media.png',
-    description: 'Engaging with digital content creation, journalism, photography, and modern communication trends.',
+    description: 'Engaging students in digital content creation, journalism, photography, video production, and modern communication trends through projects, trainings, and media events.',
   ),
   ClubInfo(
     name: 'Theatre Group',
     logoPath: 'assets/png/clubs/theatre.png',
-    description: 'METU’s creative stage for acting, directing, and stagecraft, producing multiple plays every academic year.',
+    description: 'Providing a creative stage for acting, directing, and stagecraft, where students collaboratively produce theatrical plays and performances throughout the academic year.',
   ),
   ClubInfo(
     name: 'Language Community',
     logoPath: 'assets/png/clubs/language.png',
-    description: 'Fostering multilingualism through conversation clubs and cultural exchange programs.',
+    description: 'Fostering multilingualism and cultural awareness through conversation clubs, language exchange programs, workshops, and international cultural activities.',
   ),
   ClubInfo(
     name: 'Fine Arts Society (GST)',
     logoPath: 'assets/png/clubs/fine_art.png',
-    description: 'Providing a hub for visual arts, including painting, sculpture, and traditional handicraft workshops.',
+    description: 'Providing a hub for visual and traditional arts, including painting, sculpture, and handicraft workshops, while encouraging artistic expression and creativity.',
   ),
   ClubInfo(
     name: 'Japanese Cultural Society',
     logoPath: 'assets/png/clubs/japanese.png',
-    description: 'Celebrating Japanese culture through language study, anime screenings, and traditional tea ceremonies.',
+    description: 'Celebrating Japanese culture through language study, anime and film screenings, cultural workshops, and traditional activities such as tea ceremonies and festivals.',
   ),
 ];
 
