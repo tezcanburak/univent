@@ -8,7 +8,7 @@ https://www.figma.com/design/Fd4wEqwSbpJLYrX3SElZia/Univent?node-id=0-1&t=rzlY6C
 
 [UNIVENT_Project_Report.pdf](https://github.com/user-attachments/files/25440352/UNIVENT_Project_Report.pdf)
 
-## Explanatory Poster:
+## Informative Poster:
 
 
 <img width="3307" height="4678" alt="0da0b014-1" src="https://github.com/user-attachments/assets/42904bed-70b0-4dd8-96f4-8c86ae3bbce0" />
