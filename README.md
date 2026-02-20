@@ -6,4 +6,8 @@ UNIVENT, or the Unified University Events Platform, is a centralized digital sol
 
 https://www.figma.com/design/Fd4wEqwSbpJLYrX3SElZia/Univent?node-id=0-1&t=rzlY6CQJwcDAp4DT-1
 
-## Screenshots:
+## Explanatory Poster:
+
+
+<img width="3307" height="4678" alt="0da0b014-1" src="https://github.com/user-attachments/assets/42904bed-70b0-4dd8-96f4-8c86ae3bbce0" />
+
